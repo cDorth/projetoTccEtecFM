@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,18 +11,28 @@
     <title>TCC</title>
 </head>
 <body>
+
     <div class="container">
         <section id="secInic">
             <h1 class="h1Risc">RISCO:</h1>
             <div class="risco">
                 <div id="iconVeri">
                 <img  src="imagens/iconVeri.svg" alt="icone representativo para deslizamento">
-                <span>NENHUM</span>
+                <span id="risco"  name="risco">
+                <?php
+                    if (isset($_SESSION['risco'])) {
+                        echo $_SESSION['risco']; 
+                    } else {
+                        echo "NENHUM"; 
+                    }
+                    ?>
+                </span>
+
             </div>
-                <div class="local">
-                    <img src="imagens/iconMap.svg" alt="">
-                    <span id="endereço">endereço</span>
-                </div>
+            <div class="local">
+                <img src="imagens/iconMap.svg" alt="">
+                <span id="endereço">endereço</span>
+            </div>
 
             </div>
 
@@ -36,3 +49,4 @@
     </div>
 </body>
 </html>
+
